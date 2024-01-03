@@ -1,0 +1,138 @@
+{% extends 'user/base.html' %}
+
+{% block title %}
+All Products
+{% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+
+<body id="bg" style="background-image:url('{% static 'user/items/back1.jpg' %}')";>
+<br>
+<h3 align="center">All Products</h3>
+<table>
+<thead>
+<tr>
+
+<th>Product Name</th>
+    <th>Product ID</th>
+    <th>Category Name</th>
+<th>Description</th>
+    <th>Buying Price</th>
+<th>Selling Price</th>
+<th>Purchase</th>
+<th>Sales</th>
+<th>Stock</th>
+
+
+
+    </tr>
+</thead>
+<tbody>
+   {% for c in products %}
+<tr>
+
+       <td>{{ c.product_name }}</td>
+<td>{{ c.id }}</td>
+    <td>{{ c.category_name }}</td>
+       <td>{{ c.description }}</td>
+    <td>{{ c.buying_price }}</td>
+       <td>{{ c.selling_price }}</td>
+       <td>{{ c.purchase }}</td>
+       <td>{{ c.sale }}</td>
+       <td>{{ c.stock }}</td>
+
+
+
+
+
+
+
+</tr>
+   {% endfor %}
+</tbody>
+</table>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<h3 align="left">Update</h3><br>
+
+<form method="POST" action="{% url 'productlist' %}">
+    {% csrf_token %}
+
+  <label for="id">Product Id:</label><br>
+  <input type="text" id="id" name="id"><br><br>
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name"><br><br>
+      <label for="category">Category:</label><br>
+  <input type="text" id="category" name="category"><br><br>
+      <label for="description">Description:</label><br>
+  <input type="text" id="description" name="description"><br><br>
+      <label for="bp">Buying Price:</label><br>
+  <input type="text" id="bp" name="bp"><br><br>
+      <label for="sp">Selling Price:</label><br>
+  <input type="text" id="sp" name="sp"><br><br>
+      <label for="purchase">Purchase:</label><br>
+  <input type="text" id="purchase" name="purchase"><br><br>
+      <label for="sale">Sale:</label><br>
+  <input type="text" id="sale" name="sale"><br><br>
+      <label for="stock">Stock:</label><br>
+  <input type="text" id="stock" name="stock"><br><br>
+<input type="submit" value="Submit">
+</form>
+<br><br><br>
+
+</body>
+
+
+<style>
+
+   h3{
+     color:#BA55D3;
+     font-size:36px;
+     font-style:italic;
+   }
+
+   #bg{
+    background-size: 1400px 900px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment:fixed;
+
+    }
+
+table{
+      font-family: arial,sans-serif;
+      margin: 0 auto;
+      width: 80%;
+      margin-top: 100px;
+      /*border-collapse: collapse; ise for table e single border er jo*/
+ }
+table tr th{
+     border: 1px solid #ffffff;
+     background-color: #BA55D3;
+     color: #ffffff;
+     padding: 16px 22px:
+     border-radius: 5px 5px 0 0 !important;
+ }
+table tr th:first-child{
+    text-align: left;
+ }
+table tr td{
+     border: 1px solid #ffffff;
+     background-color: #CF9FFF;
+     padding: 10px 20px:
+     text-align: center;
+ }
+table tr{
+     opacity: .7;
+ }
+table tr:hover{
+     opacity: 1;
+ }
+
+</style>
+
+
+
+{% endblock %}

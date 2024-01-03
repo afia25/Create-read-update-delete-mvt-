@@ -1,0 +1,34 @@
+{% extends 'user/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<body id="bg" style="background-image:url('{% static 'user/items/back10.jpg' %}')";>
+   <br><br>
+
+
+     My name is {{ name }}
+
+
+
+</body>
+<style>
+    #bg{
+    background-size: 1140px 661px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment:fixed;
+
+    }
+
+</style>
+</html>
+
+
+
+
+{% endblock %}
